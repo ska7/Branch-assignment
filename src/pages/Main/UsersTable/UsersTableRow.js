@@ -1,5 +1,4 @@
 import React from 'react';
-import { useUsersContext } from '../../../context/useUsersContext';
 import './usersTableRow.scss';
 
 const UsersTableRow = ({
@@ -9,13 +8,14 @@ const UsersTableRow = ({
   showCheckbox = true,
   rowCls = '',
   isSelected,
+  onClick
 }) => {
-  const { handleSelectUser } = useUsersContext();
+  const selectedCls = isSelected ? "selected" : "";
 
   return (
-    <div className={`users-table-row ${rowCls}`}>
+    <div className={`users-table-row ${selectedCls} ${rowCls}`} onClick={onClick}>
       <div className="user-table-row-checkbox">
-        {showCheckbox && <input type="checkbox" checked={isSelected} onChange={() => handleSelectUser(email)} />}
+        {showCheckbox && <input type="checkbox" checked={isSelected} />}
       </div>
       <p className="user-table-row-value user-email-value">{email}</p>
       <p className="user-table-row-value user-name-value">{name}</p>

@@ -7,6 +7,7 @@ const MainPage = () => {
   const {
     selectedUsers,
     checkIfUserIsSelected,
+    handleSelectUser,
     deleteUsers,
     allUsers,
     usersAreLoading,
@@ -23,6 +24,7 @@ const MainPage = () => {
         </button>
       </div>
       <UsersTable
+        handleSelectUser={handleSelectUser}
         selectedUsers={selectedUsers}
         usersAreLoading={usersAreLoading}
         users={allUsers}
