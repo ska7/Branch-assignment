@@ -4,14 +4,13 @@ import ReactDOM from 'react-dom';
 import { HashRouter } from 'react-router-dom';
 import AppRouter from './AppRouter';
 import apolloClient from './graphql/apolloClient';
-import "./global.scss";
-
+import './global.scss';
 
 const Root = () => (
   <ApolloProvider client={apolloClient}>
-    <HashRouter>
-      <AppRouter />
-    </HashRouter>
+      <HashRouter>
+        <AppRouter />
+      </HashRouter>
   </ApolloProvider>
 );
 

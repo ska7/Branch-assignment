@@ -1,27 +1,21 @@
-import { useQuery } from '@apollo/react-hooks';
 import React from 'react';
-import { ALL_USERS_QUERY } from '../../../graphql/queries/usersQueries';
-import useSelectedUsers from './hooks/useSelectedUsers';
 import UsersTableRow from './UsersTableRow';
 
 const UserTableHeader = () => (
   <UsersTableRow showCheckbox={false} email="EMAIL" name="NAME" role="ROLE" rowCls='users-table-labels' />
 );
 
-const UsersTable = () => {
-  const { selectedUsers, handleSelectUsers } = useSelectedUsers();
+const UsersTable = ({ checkIfUserIsSelected, usersAreLoading, users = [] }) => {
 
-  const { data, loading } = useQuery(ALL_USERS_QUERY);
+  if (usersAreLoading) return <p>Loading...</p>;
 
-  const { allUsers } = data || {};
-
-  if (loading) return <p>Loading...</p>;
   return (
     <>
       <UserTableHeader />
-      {allUsers.map((user) => (
-        <UsersTableRow {...user} />
-      ))}
+      {users.map((user) => {
+        const isUserSelected = checkIfUserIsSelected(user.email);
+        return <UsersTableRow {...user} isSelected={isUserSelected} key={user.email}/>
+      })}
     </>
   );
 };
