@@ -4,16 +4,35 @@
     display: flex;
     width: 100%;
     border-top: 1px solid $border-gray;
+    padding: 0px 0px;
+    padding: 15px 0px;
+    &:not(.users-table-labels) {
+        &:hover {
+            background-color: $users-table-row-hover;
+            cursor: pointer;
+            .user-email-value {
+                color: $users-table-row-value-hover;
+            }
+        }
+    }
     &:nth-last-child(1) {
         border-bottom: 1px solid $border-gray;
     }
     .user-table-row-value {
         flex: 1;
+        color: $dark-gray;
+        font-size: 13px;
+        font-weight: normal;
+        letter-spacing: 0.14px;
     }
     .user-role {
         flex: 0.5
     }
-    input[type="checkbox"] {
-        margin: 0px 20px 0px 15px;
+    .user-table-row-checkbox {
+        display: flex;
+        justify-content: center;
+        width: 5%;
+        input[type="checkbox"] {            
+        }
     }
 }

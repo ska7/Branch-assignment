@@ -1,8 +1,11 @@
 import React from 'react';
 import "./mainPage.scss";
+import useSelectedUsers from './UsersTable/hooks/useSelectedUsers';
 import UsersTable from './UsersTable/UsersTable';
 
 const MainPage = () => {
+  const { selectedUsers } = useSelectedUsers();
+
   return (
     <div className='main-page-container'>
       <div className='users-table-header'>
