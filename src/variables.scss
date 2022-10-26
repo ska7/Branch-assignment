@@ -1,6 +1,7 @@
 // Spacing
 
 $app-margin-x-desktop: 85px;
+$app-margin-x-mobile: 5%;
 
 // Colors
 
@@ -16,3 +17,9 @@ $users-table-row-value-hover: #0070c9;
 // Loader
 
 $loader-color: $users-table-row-value-hover;
+
+// Media Queries
+
+$lg: 900px;
+$md: 600px;
+$sm: 400px;

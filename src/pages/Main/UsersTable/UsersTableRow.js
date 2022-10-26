@@ -17,7 +17,10 @@ const UsersTableRow = ({
       <div className="user-table-row-checkbox">
         {showCheckbox && <input type="checkbox" checked={isSelected} />}
       </div>
-      <p className="user-table-row-value user-email-value">{email}</p>
+      <div className='user-table-row-value user-id-container'>
+        <p className="user-email-value">{email}</p>
+        <p className="user-name-value-mobile">{name}</p>
+      </div>
       <p className="user-table-row-value user-name-value">{name}</p>
       <p className="user-table-row-value user-role-value">{role}</p>
     </div>

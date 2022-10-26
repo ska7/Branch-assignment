@@ -1,5 +1,7 @@
 @import '../../../variables.scss';
 
+// Desktop
+
 .users-table-row {
   display: flex;
   width: 100%;
@@ -7,6 +9,17 @@
   padding: 0px 0px;
   padding: 15px 0px;
   &:not(.users-table-labels) {
+    .user-id-container {
+      display: flex;
+      flex-direction: column;
+      .user-name-value-mobile {
+        color: $users-table-header-gray;
+        font-size: 9px;
+        @media (min-width: $md) {
+          display: none;
+        }
+      }
+    }
     &:hover {
       background-color: $users-table-row-hover;
       cursor: pointer;
@@ -32,6 +45,7 @@
     display: flex;
     justify-content: center;
     width: 5%;
+    margin: 0px 5px;
     input[type='checkbox'] {
     }
   }
@@ -42,3 +56,33 @@
     color: $users-table-row-value-hover;
   }
 }
+
+.users-table-labels {
+  .user-id-container {
+    .user-name-value-mobile {
+      display: none;
+    }
+  }
+}
+
+// Mobile
+
+@media (max-width: $md) {
+  // .user-table-row-value {
+  //   font-size: 10px !important;
+  // }
+  .user-table-row-value {
+    font-size: 10px !important;
+  }
+  .user-name-value {
+    display: none;
+  }
+}
+// @media (max-width: 550px) {
+//   .user-table-row-value {
+//     font-size: 10px !important;
+//   }
+//   .user-name-value {
+//     display: none;
+//   }
+// }
