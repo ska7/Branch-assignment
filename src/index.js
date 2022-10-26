@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { HashRouter } from 'react-router-dom';
 import AppRouter from './AppRouter';
 import apolloClient from './graphql/apolloClient';
+import "./global.scss";
 
 
 const Root = () => (

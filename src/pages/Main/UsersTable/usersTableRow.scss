@@ -1,0 +1,19 @@
+@import "../../../variables.scss";
+
+.users-table-row {
+    display: flex;
+    width: 100%;
+    border-top: 1px solid $border-gray;
+    &:nth-last-child(1) {
+        border-bottom: 1px solid $border-gray;
+    }
+    .user-table-row-value {
+        flex: 1;
+    }
+    .user-role {
+        flex: 0.5
+    }
+    input[type="checkbox"] {
+        margin: 0px 20px 0px 15px;
+    }
+}
