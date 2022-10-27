@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Branch-assignment/static/css/main.be011f0a.chunk.css",
+    "main.js": "/Branch-assignment/static/js/main.373fd18b.chunk.js",
+    "main.js.map": "/Branch-assignment/static/js/main.373fd18b.chunk.js.map",
+    "runtime~main.js": "/Branch-assignment/static/js/runtime~main.cfbaa97d.js",
+    "runtime~main.js.map": "/Branch-assignment/static/js/runtime~main.cfbaa97d.js.map",
+    "static/js/2.379b7ce7.chunk.js": "/Branch-assignment/static/js/2.379b7ce7.chunk.js",
+    "static/js/2.379b7ce7.chunk.js.map": "/Branch-assignment/static/js/2.379b7ce7.chunk.js.map",
+    "index.html": "/Branch-assignment/index.html",
+    "precache-manifest.827cd5c4fbcab608010658ac4fc38690.js": "/Branch-assignment/precache-manifest.827cd5c4fbcab608010658ac4fc38690.js",
+    "service-worker.js": "/Branch-assignment/service-worker.js",
+    "static/css/main.be011f0a.chunk.css.map": "/Branch-assignment/static/css/main.be011f0a.chunk.css.map"
+  }
+}

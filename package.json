@@ -1,5 +1,6 @@
 {
   "name": "evaluations-react-table-crud",
+  "homepage": "https://ska7.github.io/Branch-assignment",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,7 +20,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d static"
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
