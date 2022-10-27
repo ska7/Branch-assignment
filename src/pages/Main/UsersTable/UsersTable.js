@@ -19,7 +19,14 @@ const UsersTable = ({ checkIfUserIsSelected, handleSelectUser, usersAreLoading, 
     {users.map((user) => {
       const isUserSelected = checkIfUserIsSelected(user.email);
       const onUserClick = () => handleSelectUser(user.email);
-      return <UsersTableRow {...user} isSelected={isUserSelected} onClick={onUserClick} key={user.email} />;
+      return (
+        <UsersTableRow
+          {...user}
+          isSelected={isUserSelected}
+          onClick={onUserClick}
+          key={user.email}
+        />
+      );
     })}
   </>
 );

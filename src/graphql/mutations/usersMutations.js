@@ -2,12 +2,10 @@ import { gql } from 'apollo-boost';
 
 export const UPDATE_USER_MUTATION = gql`
   mutation updateUser($email: ID!, $newAttributes: UserAttributesInput!) {
-    updateUser(
-      email: $email, newAttributes: $newAttributes
-    ) {
-        email
-        name
-        role
+    updateUser(email: $email, newAttributes: $newAttributes) {
+      email
+      name
+      role
     }
   }
 `;

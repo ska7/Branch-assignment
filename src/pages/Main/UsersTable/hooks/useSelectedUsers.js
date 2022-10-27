@@ -12,15 +12,15 @@ const useSelectedUsers = () => {
 
     let updatedSelectedUsers = [];
     if (userIsSelected) {
-        updatedSelectedUsers = selectedUsers.filter((selectedUser) => selectedUser !== user);
+      updatedSelectedUsers = selectedUsers.filter((selectedUser) => selectedUser !== user);
     } else {
-        updatedSelectedUsers = [...selectedUsers, user];
+      updatedSelectedUsers = [...selectedUsers, user];
     }
 
     setSelectedUsers(updatedSelectedUsers);
-  }
+  };
 
-  return {selectedUsers, handleSelectUser, checkIfUserIsSelected, clearSelectedUsers};
+  return { selectedUsers, handleSelectUser, checkIfUserIsSelected, clearSelectedUsers };
 };
 
 export default useSelectedUsers;

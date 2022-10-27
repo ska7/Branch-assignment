@@ -5,25 +5,24 @@ import MainPage from './pages/Main/MainPage';
 import UserDetailsPage from './pages/UserDetails/UserDetailsPage';
 
 const AppRouter = () => {
-    const routes = useRoutes([
+  const routes = useRoutes([
+    {
+      path: '/',
+      children: [
         {
-            path: '/',
-            children: [
-                {
-                    path: '/',
-                    element: <Navigate to="main" />,
-                },
-                {
-                    path: 'main',
-                    element: <MainPage />,
-                },
-                { path: 'details', element: <UserDetailsPage /> },
-            ],
+          path: '/',
+          element: <Navigate to="main" />,
         },
-    ]);
+        {
+          path: 'main',
+          element: <MainPage />,
+        },
+        { path: 'details', element: <UserDetailsPage /> },
+      ],
+    },
+  ]);
 
-    return routes;
+  return routes;
 };
 
 export default AppRouter;
-

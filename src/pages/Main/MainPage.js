@@ -1,9 +1,9 @@
 import React from 'react';
-import { UsersContextProvider, useUsersContext } from '../../context/useUsersContext';
-import UsersTable from './UsersTable/UsersTable';
-import './mainPage.scss';
-import { DELETE_BTN_TYPE } from '../../components/Button/constants/buttonTypes';
 import PageContainer from '../../components/PageContainer/PageContainer';
+import UsersTable from './UsersTable/UsersTable';
+import { UsersContextProvider, useUsersContext } from '../../context/useUsersContext';
+import { DELETE_BTN_TYPE } from '../../components/Button/constants/buttonTypes';
+import './mainPage.scss';
 
 const MainPage = () => {
   const {
@@ -18,8 +18,8 @@ const MainPage = () => {
   const deleteUsersBtnProps = {
     onClick: deleteUsers,
     isDisabled: !selectedUsers.length || usersAreLoading,
-    type: DELETE_BTN_TYPE
-  }
+    type: DELETE_BTN_TYPE,
+  };
 
   return (
     <PageContainer pageTitle="Users" pageHeaderButtonProps={deleteUsersBtnProps}>

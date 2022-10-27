@@ -8,27 +8,28 @@ import useSelectedUsers from '../pages/Main/UsersTable/hooks/useSelectedUsers';
 const UsersContext = createContext(null);
 
 export const UsersContextProvider = ({ children }) => {
-    const [isLoading, setLoading] = useState(true);
-    const { selectedUsers, handleSelectUser, checkIfUserIsSelected, clearSelectedUsers } = useSelectedUsers();
-    const { data, refetch: refetchUsers } = useQuery(ALL_USERS_QUERY, {
-        onCompleted: () => setLoading(false)
-    });
-    
-    const { allUsers } = data || {};
-    const [deleteUsers] = useMutation(DELETE_USERS_MUTATION, {
-        variables: {
-            emails: selectedUsers,
-        }
-    });
+  const [isLoading, setLoading] = useState(true);
+  const { selectedUsers, handleSelectUser, checkIfUserIsSelected, clearSelectedUsers } =
+    useSelectedUsers();
+  const { data, refetch: refetchUsers } = useQuery(ALL_USERS_QUERY, {
+    onCompleted: () => setLoading(false),
+  });
 
-    const handleDeleteUsers = async () => {
-        setLoading(true);
-        await deleteUsers();
-        await refetchUsers();
-        clearSelectedUsers();
-        setLoading(false);
-    }
-    
+  const { allUsers } = data || {};
+  const [deleteUsers] = useMutation(DELETE_USERS_MUTATION, {
+    variables: {
+      emails: selectedUsers,
+    },
+  });
+
+  const handleDeleteUsers = async () => {
+    setLoading(true);
+    await deleteUsers();
+    await refetchUsers();
+    clearSelectedUsers();
+    setLoading(false);
+  };
+
   return (
     <UsersContext.Provider
       value={{

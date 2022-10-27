@@ -1,35 +1,35 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
 .btn {
-    width: 76px;
-    height: 28px;
-    padding: 7px 17px;
+  width: 76px;
+  height: 28px;
+  padding: 7px 17px;
+  background-color: transparent;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  &:hover {
+    cursor: pointer;
+  }
+  &:disabled {
+    border: 1px solid $inactive-gray;
+    color: $inactive-gray;
     background-color: transparent;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
     &:hover {
-        cursor: pointer;
+      cursor: not-allowed;
     }
-    &:disabled {
-        border: 1px solid $inactive-gray;
-        color: $inactive-gray;
-        background-color: transparent;
-        &:hover {
-            cursor: not-allowed;
-        }
-    }
+  }
 }
 
 .delete-btn {
-    border: 1px solid $red;
-    color: $red;
+  border: 1px solid $red;
+  color: $red;
 }
 
 .save-btn {
-    border: 1px solid $blue;
-    background-color: $blue;
-    color: $white;
+  border: 1px solid $blue;
+  background-color: $blue;
+  color: $white;
 }

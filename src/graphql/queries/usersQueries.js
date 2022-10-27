@@ -10,7 +10,6 @@ export const ALL_USERS_QUERY = gql`
   }
 `;
 
-
 export const USER_QUERY = gql`
   query getUser($email: ID!) {
     user(email: $email) {

@@ -8,9 +8,9 @@ import './global.scss';
 
 const Root = () => (
   <ApolloProvider client={apolloClient}>
-      <HashRouter>
-        <AppRouter />
-      </HashRouter>
+    <HashRouter>
+      <AppRouter />
+    </HashRouter>
   </ApolloProvider>
 );
 

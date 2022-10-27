@@ -1,20 +1,20 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
 .page-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 14px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 14px 0px;
+  h1 {
+    font-size: 34px;
+    color: $black;
+  }
+}
+
+@media (max-width: $lg) {
+  .page-header {
     h1 {
-      font-size: 34px;
-      color: $black;
+      font-size: 28px;
     }
   }
-
-  @media (max-width: $lg) {
-    .page-header {
-        h1 {
-          font-size: 28px;
-        }
-      }
-  }
+}

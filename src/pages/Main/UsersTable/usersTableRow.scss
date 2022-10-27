@@ -46,8 +46,6 @@
     justify-content: center;
     width: 5%;
     margin: 0px 5px;
-    input[type='checkbox'] {
-    }
   }
 }
 
@@ -68,9 +66,6 @@
 // Mobile
 
 @media (max-width: $md) {
-  // .user-table-row-value {
-  //   font-size: 10px !important;
-  // }
   .user-table-row-value {
     font-size: 10px !important;
   }
@@ -78,11 +73,3 @@
     display: none;
   }
 }
-// @media (max-width: 550px) {
-//   .user-table-row-value {
-//     font-size: 10px !important;
-//   }
-//   .user-name-value {
-//     display: none;
-//   }
-// }

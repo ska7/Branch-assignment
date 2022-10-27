@@ -1,5 +1,4 @@
-import { DELETE_BTN_TYPE, SAVE_BTN_TYPE } from "./buttonTypes";
-
+import { DELETE_BTN_TYPE, SAVE_BTN_TYPE } from './buttonTypes';
 
 export const btnClsEnum = {
   [SAVE_BTN_TYPE]: 'save-btn',

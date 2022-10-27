@@ -1,30 +1,30 @@
-@import "../../variables.scss";
+@import '../../variables.scss';
 
 // Desktop
 
 .main-page-container {
-    margin: 40px $app-margin-x-desktop;
-    .users-table-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 14px 0px;
-        h1 {
-            font-size: 34px;
-            color: $black;
-        }
+  margin: 40px $app-margin-x-desktop;
+  .users-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 14px 0px;
+    h1 {
+      font-size: 34px;
+      color: $black;
     }
+  }
 }
 
 // Medium screen and mobile
 
 @media (max-width: $lg) {
-    .main-page-container {
-        margin: 40px $app-margin-x-mobile;
-        .users-table-header {
-            h1 {
-                font-size: 28px;;
-            }
-        }
+  .main-page-container {
+    margin: 40px $app-margin-x-mobile;
+    .users-table-header {
+      h1 {
+        font-size: 28px;
+      }
     }
+  }
 }

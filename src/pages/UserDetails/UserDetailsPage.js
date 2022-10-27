@@ -1,12 +1,13 @@
 import React from 'react';
 import { SAVE_BTN_TYPE } from '../../components/Button/constants/buttonTypes';
 import PageContainer from '../../components/PageContainer/PageContainer';
+import Loader from '../../components/Loader/Loader';
+import UserNameInput from './UserNameInput/UserNameInput';
 import {
   UserDetailsContextProvider,
   useUserDetailsContext,
 } from '../../context/useUserDetailsContext';
 import UserRoles from './UserRoles/UserRoles';
-import Loader from '../../components/Loader/Loader';
 import './userDetailsPage.scss';
 
 const UserDetailsPage = () => {
@@ -36,16 +37,8 @@ const UserDetailsPage = () => {
         <Loader />
       ) : (
         <div className="details-page-body">
-          <div className="user-name-input-container">
-            <label htmlFor="userName">Name</label>
-            <input
-              id="userName"
-              placeholder="Type in user full name"
-              value={userName}
-              onChange={handleUserNameChange}
-            />
-          </div>
-          <UserRoles activeRole={userRole} handleRoleChange={handleUserRoleChange}/>
+          <UserNameInput userName={userName} handleUserNameChange={handleUserNameChange} />
+          <UserRoles activeRole={userRole} handleRoleChange={handleUserRoleChange} />
         </div>
       )}
     </PageContainer>
