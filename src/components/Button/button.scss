@@ -1,7 +1,7 @@
 @import '../../variables.scss';
 
 .btn {
-  width: 76px;
+  width: auto;
   height: 28px;
   padding: 7px 17px;
   background-color: transparent;
@@ -32,4 +32,10 @@
   border: 1px solid $blue;
   background-color: $blue;
   color: $white;
+}
+
+.reset-btn {
+  margin-top: 50px;
+  border: 1px solid $gold;
+  color: $gold;
 }

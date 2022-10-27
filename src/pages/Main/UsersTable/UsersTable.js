@@ -1,4 +1,6 @@
 import React from 'react';
+import Button from '../../../components/Button/Button';
+import { RESET_BTN_TYPE } from '../../../components/Button/constants/buttonTypes';
 import Loader from '../../../components/Loader/Loader';
 import UsersTableRow from './UsersTableRow';
 
@@ -12,7 +14,7 @@ const UserTableHeader = () => (
   />
 );
 
-const UsersTable = ({ checkIfUserIsSelected, handleSelectUser, usersAreLoading, users = [] }) => (
+const UsersTable = ({ checkIfUserIsSelected, handleSelectUser, resetUsers, usersAreLoading, users = [] }) => (
   <>
     {usersAreLoading && <Loader />}
     <UserTableHeader />
@@ -28,6 +30,7 @@ const UsersTable = ({ checkIfUserIsSelected, handleSelectUser, usersAreLoading, 
         />
       );
     })}
+    {!usersAreLoading && <Button onClick={resetUsers} type={RESET_BTN_TYPE}/>}
   </>
 );
 

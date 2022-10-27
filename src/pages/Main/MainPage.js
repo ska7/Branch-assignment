@@ -11,6 +11,7 @@ const MainPage = () => {
     checkIfUserIsSelected,
     handleSelectUser,
     deleteUsers,
+    resetUsers,
     users,
     usersAreLoading,
   } = useUsersContext();
@@ -24,6 +25,7 @@ const MainPage = () => {
   return (
     <PageContainer pageTitle="Users" pageHeaderButtonProps={deleteUsersBtnProps}>
       <UsersTable
+        resetUsers={resetUsers}
         handleSelectUser={handleSelectUser}
         selectedUsers={selectedUsers}
         usersAreLoading={usersAreLoading}

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { createContext } from 'react';
-import { DELETE_USERS_MUTATION } from '../graphql/mutations/usersMutations';
+import { DELETE_USERS_MUTATION, RESET_USERS_MUTATION } from '../graphql/mutations/usersMutations';
 import { ALL_USERS_QUERY } from '../graphql/queries/usersQueries';
 import useSelectedUsers from '../pages/Main/UsersTable/hooks/useSelectedUsers';
 
@@ -13,7 +13,7 @@ export const UsersContextProvider = ({ children }) => {
   const { selectedUsers, handleSelectUser, checkIfUserIsSelected, clearSelectedUsers } =
     useSelectedUsers();
 
-  useQuery(ALL_USERS_QUERY, {
+  const { refetch: refetchUsers } = useQuery(ALL_USERS_QUERY, {
     onCompleted: ({ allUsers }) => {
       setUsers(allUsers);
       setLoading(false);
@@ -25,6 +25,19 @@ export const UsersContextProvider = ({ children }) => {
     variables: {
       emails: selectedUsers,
     },
+    onCompleted: () => {
+      updateUsers();
+      clearSelectedUsers();
+      setLoading(false);
+    }
+  });
+
+  const [resetUsers] = useMutation(RESET_USERS_MUTATION, {
+    onCompleted: async () => {
+      const { data } = await refetchUsers();
+      setUsers(data?.allUsers);
+      setLoading(false);
+    }
   });
 
   const updateUsers = () => {
@@ -32,13 +45,15 @@ export const UsersContextProvider = ({ children }) => {
     setUsers(updatedUsers);
   }
 
-  const handleDeleteUsers = async () => {
+  const handleDeleteUsers = () => {
     setLoading(true);
-    await deleteUsers();
-    updateUsers();
-    clearSelectedUsers();
-    setLoading(false);
+    deleteUsers();
   };
+
+  const handleResetUsers = () => {
+    setLoading(true);
+    resetUsers();
+  }
 
   return (
     <UsersContext.Provider
@@ -49,6 +64,7 @@ export const UsersContextProvider = ({ children }) => {
         handleSelectUser,
         checkIfUserIsSelected,
         deleteUsers: handleDeleteUsers,
+        resetUsers: handleResetUsers
       }}
     >
       {children}
