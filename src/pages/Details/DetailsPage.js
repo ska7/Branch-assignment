@@ -17,7 +17,7 @@ const DetailsPage = () => {
     <PageContainer pageTitle={userEmail} pageHeaderButtonProps={saveUserBtnProps} pageHeaderCls="details-page-header">
       <div className='details-page-body'>
         <div className='user-name-input-container'>
-          <label for="userName">Name</label>
+          <label htmlFor="userName">Name</label>
           <input id="userName" placeholder='Type in user full name' value="" onChange={() => {}} />
         </div>
         <UserRoles />

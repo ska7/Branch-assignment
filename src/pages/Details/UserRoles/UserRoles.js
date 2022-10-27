@@ -1,13 +1,22 @@
 import React from 'react';
+import { userRoles } from '../../../shared/constants/userRoles';
 import './userRoles.scss';
+
+const UserRole = ({ userRole }) => (
+  <div className='user-role-option'>
+    <input type="radio" id={userRole} value={userRole} name="userRoles" key={userRole} />
+    <label htmlFor={userRole}>{userRole}</label>
+  </div>
+);
 
 const UserRoles = () => {
   return (
-    <div className='user-roles-radio-group'>
-      <label>Role</label>
-      <fieldset id="user-roles">
-        <input type="radio" id="admin" name="user-roles" />
-        <input type="radio" id="developer" name="user-roles" />
+    <div className="user-roles-radio-group">
+      <label htmlFor="userRoles">Role</label>
+      <fieldset id="userRoles">
+        {userRoles.map((userRole) => (
+          <UserRole userRole={userRole} key={userRole}/>
+        ))}
       </fieldset>
     </div>
   );

@@ -1,0 +1,1 @@
+export const userRoles = ['Admin', 'Developer', 'App Manager', 'Marketing', 'Sales'];
