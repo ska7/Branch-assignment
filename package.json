@@ -1,10 +1,12 @@
 {
   "name": "evaluations-react-table-crud",
+  "homepage": "https://ska7.github.io/Branch-assignment",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@apollo/react-hooks": "^3.1.0",
     "apollo-boost": "^0.4.4",
+    "gh-pages": "^4.0.0",
     "graphql": "^14.5.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -16,7 +18,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": {
     "production": [
