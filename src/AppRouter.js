@@ -1,7 +1,8 @@
 import React from 'react';
 import { Navigate, useRoutes } from 'react-router-dom';
-import DetailsPage from './pages/Details/DetailsPage';
+
 import MainPage from './pages/Main/MainPage';
+import UserDetailsPage from './pages/UserDetails/UserDetailsPage';
 
 const AppRouter = () => {
     const routes = useRoutes([
@@ -16,7 +17,7 @@ const AppRouter = () => {
                     path: 'main',
                     element: <MainPage />,
                 },
-                { path: 'details', element: <DetailsPage /> },
+                { path: 'details', element: <UserDetailsPage /> },
             ],
         },
     ]);
