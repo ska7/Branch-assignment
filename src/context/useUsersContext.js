@@ -9,24 +9,33 @@ const UsersContext = createContext(null);
 
 export const UsersContextProvider = ({ children }) => {
   const [isLoading, setLoading] = useState(true);
+  const [users, setUsers] = useState([]);
   const { selectedUsers, handleSelectUser, checkIfUserIsSelected, clearSelectedUsers } =
     useSelectedUsers();
-  const { data, refetch: refetchUsers } = useQuery(ALL_USERS_QUERY, {
-    onCompleted: () => setLoading(false),
+
+  useQuery(ALL_USERS_QUERY, {
+    onCompleted: ({ allUsers }) => {
+      setUsers(allUsers);
+      setLoading(false);
+    },
     fetchPolicy: 'network-only',
   });
 
-  const { allUsers } = data || {};
   const [deleteUsers] = useMutation(DELETE_USERS_MUTATION, {
     variables: {
       emails: selectedUsers,
     },
   });
 
+  const updateUsers = () => {
+    const updatedUsers = users.filter((user) => !checkIfUserIsSelected(user.email))
+    setUsers(updatedUsers);
+  }
+
   const handleDeleteUsers = async () => {
     setLoading(true);
     await deleteUsers();
-    await refetchUsers();
+    updateUsers();
     clearSelectedUsers();
     setLoading(false);
   };
@@ -35,7 +44,7 @@ export const UsersContextProvider = ({ children }) => {
     <UsersContext.Provider
       value={{
         selectedUsers,
-        allUsers,
+        users,
         usersAreLoading: isLoading,
         handleSelectUser,
         checkIfUserIsSelected,

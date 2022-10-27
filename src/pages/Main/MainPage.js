@@ -11,7 +11,7 @@ const MainPage = () => {
     checkIfUserIsSelected,
     handleSelectUser,
     deleteUsers,
-    allUsers,
+    users,
     usersAreLoading,
   } = useUsersContext();
 
@@ -27,7 +27,7 @@ const MainPage = () => {
         handleSelectUser={handleSelectUser}
         selectedUsers={selectedUsers}
         usersAreLoading={usersAreLoading}
-        users={allUsers}
+        users={users}
         checkIfUserIsSelected={checkIfUserIsSelected}
       />
     </PageContainer>
