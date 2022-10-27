@@ -1,5 +1,7 @@
 @import '../../variables.scss';
 
+// Desktop
+
 .details-page-header {
   padding-bottom: 15px;
   border-bottom: 1px solid $border-gray;
@@ -22,7 +24,7 @@
     }
     input {
       margin-top: 7px;
-      width: 50%;
+      width: 60%;
       padding: 4px;
       outline: none;
       border-radius: 3px;
@@ -35,3 +37,29 @@
     }
   }
 }
+
+// Mobile
+
+@media (max-width: $md) {
+  .details-page-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    h1 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+  } 
+  .details-page-body {
+    flex-direction: column;
+    .user-name-input-container {
+      border-right: none;
+      input {
+        width: 70%;
+      }
+    }
+  }
+}
+
+
+

@@ -1,5 +1,7 @@
 @import "../../../variables.scss";
 
+// Desktop
+
 .user-roles-radio-group {
   display: flex;
   flex-direction: column;
@@ -30,5 +32,13 @@
         color: $coal;
       }
     }
+  }
+}
+
+// Mobile
+
+@media (max-width: $md) {
+  .user-roles-radio-group {
+    padding-left: 0px;
   }
 }
