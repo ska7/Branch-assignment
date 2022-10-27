@@ -14,27 +14,6 @@
             color: $black;
         }
     }
-    .delete-btn {
-        width: 76px;
-        height: 28px;
-        padding: 7px 17px;
-        background-color: transparent;
-        border-radius: 4px;
-        border: 1px solid $red;
-        color: $red;
-        display: flex;
-        align-items: center;
-        &:hover {
-            cursor: pointer;
-        }
-        &:disabled {
-            border: 1px solid $inactive-gray;
-            color: $inactive-gray;
-            &:hover {
-                cursor: not-allowed;
-            }
-        }
-    }
 }
 
 // Medium screen and mobile

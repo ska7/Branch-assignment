@@ -21,10 +21,10 @@
       }
     }
     &:hover {
-      background-color: $users-table-row-hover;
+      background-color: $white;
       cursor: pointer;
       .user-email-value {
-        color: $users-table-row-value-hover;
+        color: $blue;
       }
     }
   }
@@ -53,7 +53,7 @@
 
 .selected {
   .user-email-value {
-    color: $users-table-row-value-hover;
+    color: $blue;
   }
 }
 

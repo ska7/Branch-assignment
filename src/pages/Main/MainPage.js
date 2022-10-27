@@ -1,7 +1,10 @@
 import React from 'react';
 import { UsersContextProvider, useUsersContext } from '../../context/useUsersContext';
-import './mainPage.scss';
 import UsersTable from './UsersTable/UsersTable';
+import './mainPage.scss';
+import Button from '../../components/Button/Button';
+import { DELETE_BTN_TYPE } from '../../components/Button/constants/buttonTypes';
+
 
 const MainPage = () => {
   const {
@@ -19,9 +22,7 @@ const MainPage = () => {
     <div className="main-page-container">
       <div className="users-table-header">
         <h1>Users</h1>
-        <button onClick={deleteUsers} disabled={disableDeleteBtn} className="delete-btn">
-          Delete
-        </button>
+        <Button onClick={deleteUsers} isDisabled={disableDeleteBtn} type={DELETE_BTN_TYPE}/>
       </div>
       <UsersTable
         handleSelectUser={handleSelectUser}

@@ -5,18 +5,18 @@ $app-margin-x-mobile: 5%;
 
 // Colors
 
+$white: #fafafa;
 $black: #000000;
 $red: #ee0000;
+$blue: #0070c9;
 $border-gray: #e5e5e5;
 $inactive-gray: #b8b8b8;
 $dark-gray: #333;
 $users-table-header-gray: #777777;
-$users-table-row-hover: #fafafa;
-$users-table-row-value-hover: #0070c9;
 
 // Loader
 
-$loader-color: $users-table-row-value-hover;
+$loader-color: $blue;
 
 // Media Queries
 
