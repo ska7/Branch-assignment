@@ -13,6 +13,7 @@ export const UsersContextProvider = ({ children }) => {
     useSelectedUsers();
   const { data, refetch: refetchUsers } = useQuery(ALL_USERS_QUERY, {
     onCompleted: () => setLoading(false),
+    fetchPolicy: 'network-only',
   });
 
   const { allUsers } = data || {};

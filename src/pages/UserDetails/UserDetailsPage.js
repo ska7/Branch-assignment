@@ -15,6 +15,7 @@ const UserDetailsPage = () => {
     userEmail,
     userRole,
     userName,
+    formIsDirty,
     userDetailsAreLoading,
     handleUpdateUser,
     handleUserNameChange,
@@ -23,7 +24,7 @@ const UserDetailsPage = () => {
 
   const saveUserBtnProps = {
     onClick: handleUpdateUser,
-    isDisabled: userDetailsAreLoading || !userName,
+    isDisabled: userDetailsAreLoading || !userName || !formIsDirty,
     type: SAVE_BTN_TYPE,
   };
 

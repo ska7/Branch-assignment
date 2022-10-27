@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@apollo/react-hooks';
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { UPDATE_USER_MUTATION } from '../graphql/mutations/usersMutations';
 import { USER_QUERY } from '../graphql/queries/usersQueries';
 import useURLSearchParams from '../shared/hooks/useURLSearchParams';
@@ -9,6 +9,12 @@ const UserDetailsContext = createContext(null);
 export const UserDetailsContextProvider = ({ children }) => {
   const userEmail = useURLSearchParams('user');
 
+  // We introduce this piece of state so we know if the user details have been modified.
+  // If not, we'll disable the Save button to avoid unnecessary network calls
+  const [formIsDirty, setFormDirty] = useState(false);
+  const [initialName, setInitialName] = useState('');
+  const [initialRole, setInitialRole] = useState('');
+
   const [isLoading, setLoading] = useState(true);
   const [userName, setUserName] = useState('');
   const [userRole, setUserRole] = useState('');
@@ -16,14 +22,16 @@ export const UserDetailsContextProvider = ({ children }) => {
   const handleUserNameChange = ({ target }) => setUserName(target.value || '');
   const handleUserRoleChange = ({ target }) => setUserRole(target.value || '');
 
-  const { data } = useQuery(USER_QUERY, {
+  useQuery(USER_QUERY, {
     variables: {
       email: userEmail,
     },
     onCompleted: ({ user }) => {
       setLoading(false);
       setUserName(user.name);
+      setInitialName(user.name);
       setUserRole(user.role);
+      setInitialRole(user.role);
     },
   });
 
@@ -43,12 +51,18 @@ export const UserDetailsContextProvider = ({ children }) => {
     updateUser();
   };
 
+  useEffect(() => {
+    if (initialName === userName && initialRole === userRole) setFormDirty(false);
+    else setFormDirty(true);
+  }, [initialName, initialRole, userName, userRole]);
+
   return (
     <UserDetailsContext.Provider
       value={{
         userEmail,
         userRole,
         userName,
+        formIsDirty,
         userDetailsAreLoading: isLoading,
         handleUpdateUser,
         handleUserNameChange,
