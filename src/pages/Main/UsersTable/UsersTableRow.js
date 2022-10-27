@@ -1,6 +1,8 @@
 import React from 'react';
 import './usersTableRow.scss';
 
+const noop = () => {};
+
 const UsersTableRow = ({
   email,
   name,
@@ -15,7 +17,7 @@ const UsersTableRow = ({
   return (
     <div className={`users-table-row ${selectedCls} ${rowCls}`} onClick={onClick}>
       <div className="user-table-row-checkbox">
-        {showCheckbox && <input type="checkbox" checked={isSelected} />}
+        {showCheckbox && <input type="checkbox" checked={isSelected} onChange={noop}/>}
       </div>
       <div className="user-table-row-value user-id-container">
         <p className="user-email-value">
