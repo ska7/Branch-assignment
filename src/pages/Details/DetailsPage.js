@@ -1,16 +1,21 @@
 import React from 'react';
-import Button from '../../components/Button/Button';
 import { SAVE_BTN_TYPE } from '../../components/Button/constants/buttonTypes';
+import PageContainer from '../../components/PageContainer/PageContainer';
+import useURLSearchParams from '../../shared/hooks/useURLSearchParams';
 import './detailsPage.scss';
 
 const DetailsPage = () => {
+  const userEmail = useURLSearchParams("user");
+  const saveUserBtnProps = {
+    onClick: () => {},
+    isDisabled: false,
+    type: SAVE_BTN_TYPE
+  }
+
   return (
-    <div className="main-page-container">
-      <div className="users-table-header">
-        <h1>Users</h1>
-        <Button onClick={() => {}} isDisabled={false} type={SAVE_BTN_TYPE} />
-      </div>
-    </div>
+    <PageContainer pageTitle={userEmail} pageHeaderButtonProps={saveUserBtnProps} pageHeaderCls="details-page-header">
+      {/* <h2>Something in the way</h2> */}
+    </PageContainer>
   );
 };
 

@@ -2,9 +2,8 @@ import React from 'react';
 import { UsersContextProvider, useUsersContext } from '../../context/useUsersContext';
 import UsersTable from './UsersTable/UsersTable';
 import './mainPage.scss';
-import Button from '../../components/Button/Button';
 import { DELETE_BTN_TYPE } from '../../components/Button/constants/buttonTypes';
-
+import PageContainer from '../../components/PageContainer/PageContainer';
 
 const MainPage = () => {
   const {
@@ -16,14 +15,14 @@ const MainPage = () => {
     usersAreLoading,
   } = useUsersContext();
 
-  const disableDeleteBtn = !selectedUsers.length || usersAreLoading;
+  const deleteUsersBtnProps = {
+    onClick: deleteUsers,
+    isDisabled: !selectedUsers.length || usersAreLoading,
+    type: DELETE_BTN_TYPE
+  }
 
   return (
-    <div className="main-page-container">
-      <div className="users-table-header">
-        <h1>Users</h1>
-        <Button onClick={deleteUsers} isDisabled={disableDeleteBtn} type={DELETE_BTN_TYPE}/>
-      </div>
+    <PageContainer pageTitle="Users" pageHeaderButtonProps={deleteUsersBtnProps}>
       <UsersTable
         handleSelectUser={handleSelectUser}
         selectedUsers={selectedUsers}
@@ -31,7 +30,7 @@ const MainPage = () => {
         users={allUsers}
         checkIfUserIsSelected={checkIfUserIsSelected}
       />
-    </div>
+    </PageContainer>
   );
 };
 

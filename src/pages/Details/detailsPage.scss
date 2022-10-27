@@ -1,0 +1,10 @@
+@import "../../variables.scss";
+
+.details-page-container {
+    margin: 40px $app-margin-x-desktop;
+}
+
+.details-page-header {
+    padding-bottom: 15px;
+    border-bottom: 1px solid $border-gray;
+}

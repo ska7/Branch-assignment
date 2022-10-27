@@ -1,0 +1,11 @@
+@import "../../variables.scss";
+
+.page-container {
+  margin: 40px $app-margin-x-desktop;
+}
+
+@media (max-width: $lg) {
+  .page-container {
+    margin: 40px $app-margin-x-mobile;
+  }
+}
