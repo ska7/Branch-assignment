@@ -1,0 +1,11 @@
+.user-roles-radio-group {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  fieldset {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}

@@ -1,10 +1,37 @@
-@import "../../variables.scss";
-
-.details-page-container {
-    margin: 40px $app-margin-x-desktop;
-}
+@import '../../variables.scss';
 
 .details-page-header {
-    padding-bottom: 15px;
-    border-bottom: 1px solid $border-gray;
+  padding-bottom: 15px;
+  border-bottom: 1px solid $border-gray;
+  margin-bottom: 0px;
+}
+
+.details-page-body {
+  display: flex;
+  margin-top: 24px;
+  height: 30vh;
+  .user-name-input-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid $border-gray;
+    label {
+      font-size: 13px;
+      font-weight: 500;
+      color: $dark-gray;
+    }
+    input {
+      margin-top: 7px;
+      width: 50%;
+      padding: 4px;
+      outline: none;
+      border-radius: 3px;
+      border: 1px solid $inactive-gray;
+      transition: box-shadow 0.2s ease;
+      &:focus {
+        border: 1px solid $dark-blue;
+        box-shadow: 0 0 0 3.5px $dark-blue;
+      }
+    }
+  }
 }
