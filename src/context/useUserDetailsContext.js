@@ -22,6 +22,8 @@ export const UserDetailsContextProvider = ({ children }) => {
   const handleUserNameChange = ({ target }) => setUserName(target.value || '');
   const handleUserRoleChange = ({ target }) => setUserRole(target.value || '');
 
+  const [hasError, setHasError] = useState(false);
+
   useQuery(USER_QUERY, {
     variables: {
       email: userEmail,
@@ -33,6 +35,10 @@ export const UserDetailsContextProvider = ({ children }) => {
       setUserRole(user.role);
       setInitialRole(user.role);
     },
+    onError: () => {
+      setHasError(true);
+      setLoading(false);
+    }
   });
 
   const [updateUser] = useMutation(UPDATE_USER_MUTATION, {
@@ -63,6 +69,7 @@ export const UserDetailsContextProvider = ({ children }) => {
         userRole,
         userName,
         formIsDirty,
+        hasError,
         userDetailsAreLoading: isLoading,
         handleUpdateUser,
         handleUserNameChange,

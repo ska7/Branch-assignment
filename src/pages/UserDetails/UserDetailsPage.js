@@ -9,6 +9,7 @@ import {
 } from '../../context/useUserDetailsContext';
 import UserRoles from './UserRoles/UserRoles';
 import './userDetailsPage.scss';
+import NoUserFound from './NoUserFound/NoUserFound';
 
 const UserDetailsPage = () => {
   const {
@@ -16,6 +17,7 @@ const UserDetailsPage = () => {
     userRole,
     userName,
     formIsDirty,
+    hasError,
     userDetailsAreLoading,
     handleUpdateUser,
     handleUserNameChange,
@@ -27,6 +29,8 @@ const UserDetailsPage = () => {
     isDisabled: userDetailsAreLoading || !userName || !formIsDirty,
     type: SAVE_BTN_TYPE,
   };
+
+  if (hasError) return <NoUserFound userEmail={userEmail}/>
 
   return (
     <PageContainer
