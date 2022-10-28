@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Branch-assignment/static/css/main.863959d3.chunk.css",
+    "main.css": "/Branch-assignment/static/css/main.3ce9ecc1.chunk.css",
     "main.js": "/Branch-assignment/static/js/main.142572a2.chunk.js",
     "main.js.map": "/Branch-assignment/static/js/main.142572a2.chunk.js.map",
     "runtime~main.js": "/Branch-assignment/static/js/runtime~main.cfbaa97d.js",
@@ -8,8 +8,8 @@
     "static/js/2.41a26688.chunk.js": "/Branch-assignment/static/js/2.41a26688.chunk.js",
     "static/js/2.41a26688.chunk.js.map": "/Branch-assignment/static/js/2.41a26688.chunk.js.map",
     "index.html": "/Branch-assignment/index.html",
-    "precache-manifest.25d21331b2781deab0abfa9325a21a03.js": "/Branch-assignment/precache-manifest.25d21331b2781deab0abfa9325a21a03.js",
+    "precache-manifest.ead95872a6d9625e8ecd3859f240fddd.js": "/Branch-assignment/precache-manifest.ead95872a6d9625e8ecd3859f240fddd.js",
     "service-worker.js": "/Branch-assignment/service-worker.js",
-    "static/css/main.863959d3.chunk.css.map": "/Branch-assignment/static/css/main.863959d3.chunk.css.map"
+    "static/css/main.3ce9ecc1.chunk.css.map": "/Branch-assignment/static/css/main.3ce9ecc1.chunk.css.map"
   }
 }
