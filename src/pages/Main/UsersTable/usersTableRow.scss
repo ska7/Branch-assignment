@@ -52,6 +52,11 @@
     justify-content: center;
     width: 5%;
     margin: 0px 5px;
+    input {
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 }
 

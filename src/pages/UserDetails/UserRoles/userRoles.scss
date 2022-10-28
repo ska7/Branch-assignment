@@ -21,6 +21,12 @@
       margin-right: 8px;
     }
 
+    input, label {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
     .user-role-option {
       margin-top: 10px;
       display: flex;
