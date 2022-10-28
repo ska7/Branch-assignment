@@ -7,9 +7,13 @@ import './noUserFound.scss';
 const NoUserFound = ({ userEmail }) => {
   return (
     <div className="no-user-found-container">
-      <h1>
-        No user found with email <p>{userEmail}</p>
-      </h1>
+      {userEmail ? (
+        <h1>
+          No user found with email <p>{userEmail}</p>
+        </h1>
+      ) : (
+        <h1>No user found</h1>
+      )}
 
       <Link to="../main">
         <Button type={SAVE_BTN_TYPE} label="Go Back" />
