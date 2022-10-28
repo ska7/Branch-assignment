@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { noop, stopPropagation } from '../../../shared/utils/utils';
 import './usersTableRow.scss';
-
-const noop = () => {};
 
 const UsersTableRow = ({
   email,
@@ -22,7 +21,7 @@ const UsersTableRow = ({
       </div>
       <div className="user-table-row-value user-id-container">
         <p className="user-email-value">
-          {showCheckbox ? <Link to={userDetailsLink}>{email}</Link> : email}
+          {showCheckbox ? <Link onClick={stopPropagation} to={userDetailsLink}>{email}</Link> : email}
         </p>
         <p className="user-name-value-mobile">{name}</p>
       </div>
