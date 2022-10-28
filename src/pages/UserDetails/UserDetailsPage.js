@@ -30,7 +30,8 @@ const UserDetailsPage = () => {
     type: SAVE_BTN_TYPE,
   };
 
-  if (hasError) return <NoUserFound userEmail={userEmail}/>
+  if (userDetailsAreLoading) return <Loader />
+  if (hasError) return <NoUserFound userEmail={userEmail} />;
 
   return (
     <PageContainer
@@ -38,14 +39,10 @@ const UserDetailsPage = () => {
       pageHeaderButtonProps={saveUserBtnProps}
       pageHeaderCls="details-page-header"
     >
-      {userDetailsAreLoading ? (
-        <Loader />
-      ) : (
-        <div className="details-page-body">
-          <UserNameInput userName={userName} handleUserNameChange={handleUserNameChange} />
-          <UserRoles activeRole={userRole} handleRoleChange={handleUserRoleChange} />
-        </div>
-      )}
+      <div className="details-page-body">
+        <UserNameInput userName={userName} handleUserNameChange={handleUserNameChange} />
+        <UserRoles activeRole={userRole} handleRoleChange={handleUserRoleChange} />
+      </div>
     </PageContainer>
   );
 };
