@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './usersTableRow.scss';
 
 const noop = () => {};
@@ -13,7 +14,7 @@ const UsersTableRow = ({
   onClick,
 }) => {
   const selectedCls = isSelected ? 'selected' : '';
-  const userDetailsLink = `/#/details?user=${email}`;
+  const userDetailsLink = `../details?user=${email}`;
   return (
     <div className={`users-table-row ${selectedCls} ${rowCls}`} onClick={onClick}>
       <div className="user-table-row-checkbox">
@@ -21,7 +22,7 @@ const UsersTableRow = ({
       </div>
       <div className="user-table-row-value user-id-container">
         <p className="user-email-value">
-          {showCheckbox ? <a href={userDetailsLink}>{email}</a> : email}
+          {showCheckbox ? <Link to={userDetailsLink}>{email}</Link> : email}
         </p>
         <p className="user-name-value-mobile">{name}</p>
       </div>
