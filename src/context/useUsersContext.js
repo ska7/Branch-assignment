@@ -35,7 +35,7 @@ export const UsersContextProvider = ({ children }) => {
   const [resetUsers] = useMutation(RESET_USERS_MUTATION, {
     onCompleted: async () => {
       const { data } = await refetchUsers();
-      setUsers(data?.allUsers);
+      setUsers(data.allUsers || []);
       setLoading(false);
     }
   });

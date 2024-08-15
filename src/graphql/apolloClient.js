@@ -1,12 +1,12 @@
 import ApolloClient from 'apollo-boost';
-import env from '../env';
+// import env from '../env.js';
 
 const client = new ApolloClient({
-  uri: env.GRAPHQL_ENDPOINT,
+  uri: '',
   request: (operation) => {
     operation.setContext({
       headers: {
-        'x-api-key': env.GRAPHQL_API_KEY,
+        // 'x-api-key': env.GRAPHQL_API_KEY,
       },
     });
   },

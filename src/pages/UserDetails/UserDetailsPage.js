@@ -1,54 +1,34 @@
-import React from 'react';
-import { SAVE_BTN_TYPE } from '../../components/Button/constants/buttonTypes';
+
+import React, { useState, useEffect } from 'react';
 import PageContainer from '../../components/PageContainer/PageContainer';
-import Loader from '../../components/Loader/Loader';
 import UserNameInput from './UserNameInput/UserNameInput';
 import {
   UserDetailsContextProvider,
-  useUserDetailsContext,
 } from '../../context/useUserDetailsContext';
 import UserRoles from './UserRoles/UserRoles';
 import './userDetailsPage.scss';
-import NoUserFound from './NoUserFound/NoUserFound';
 
 const UserDetailsPage = () => {
-  const {
-    userEmail,
-    userRole,
-    userName,
-    formIsDirty,
-    hasError,
-    userDetailsAreLoading,
-    handleUpdateUser,
-    handleUserNameChange,
-    handleUserRoleChange,
-  } = useUserDetailsContext();
+  const [text, setText] = useState('');
+  const [text2, setText2] = useState('');
 
-  const saveUserBtnProps = {
-    onClick: handleUpdateUser,
-    isDisabled: userDetailsAreLoading || !userName || !formIsDirty,
-    type: SAVE_BTN_TYPE,
-  };
+  useEffect(() => {
+    setTimeout(() => {
+      setText('Diana Aralin is the best girl ever I promise ERA LIN')
+    }, 1000);
 
-  if (userDetailsAreLoading) return <Loader />
-  if (hasError) return <NoUserFound userEmail={userEmail} />;
+    setTimeout(() => {
+      setText2('Long Data Taking Some ERA LIN Juice Cat Gets Claws')
+    }, 5000);
+  }, [])
 
   return (
-    <PageContainer
-      pageTitle={userEmail}
-      pageHeaderButtonProps={saveUserBtnProps}
-      pageHeaderCls="details-page-header"
-    >
       <div className="details-page-body">
-        <UserNameInput userName={userName} handleUserNameChange={handleUserNameChange} />
-        <UserRoles activeRole={userRole} handleRoleChange={handleUserRoleChange} />
+        <h2>{text}</h2>
+        <p>FILLER GO AHEAD RANDOM SLURP DRINK GAS STATION</p>
+        <h3>{text2}</h3>
       </div>
-    </PageContainer>
   );
 };
 
-export default () => (
-  <UserDetailsContextProvider>
-    <UserDetailsPage />
-  </UserDetailsContextProvider>
-);
+export default UserDetailsPage;
